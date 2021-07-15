@@ -16,31 +16,25 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 
 var euroPerChilometro = 0.21;
 
-var Chilometri = parseInt(prompt("Inserisci i chilometri che vuoi percorrere"));
+var chilometri = parseInt(prompt("Inserisci i chilometri che vuoi percorrere"));
 
 var eta = parseInt(prompt("Inserisci la tua età"));
 
-console.log(Chilometri + " km");
-console.log(eta + " anni");
+document.getElementById("chilometri").innerHTML = ("Chilometri da percorrere:" + " " + chilometri + " " + "km");
+document.getElementById("eta").innerHTML = (eta + " anni");
 
-var prezzo = euroPerChilometro * Chilometri;
-
-
-
-var prezzoScontato20 = prezzo * 0.8;
-
-var prezzoScontato40 = prezzo * 0.6;
-
+var prezzo = euroPerChilometro * chilometri;
 
 if (eta < 18)
 {
-    console.log(prezzoScontato20 + " " + "euro");
+    document.getElementById("prezzo").innerHTML = ("Il costo del tuo biglietto sarà di" + " " + (prezzo * 0.8).toFixed(2) + " " + "€");
 }
 else if (eta > 65)
 {
-    console.log(prezzoScontato40 + " " + "euro");
+    document.getElementById("prezzo").innerHTML = ("Il costo del tuo biglietto sarà di" + " " + (prezzo * 0.6).toFixed(2) + " " + "€");
 }
 else
 {
-    console.log(prezzo + " " + "euro");
+    document.getElementById("prezzo").innerHTML = "Il costo del tuo biglietto sarà di" + " " +  (prezzo.toFixed(2) + " " + "€");
 }
+
